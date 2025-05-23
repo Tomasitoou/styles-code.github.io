@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar Sesión - Styles</title>
+<link rel="stylesheet" href="login.css">
+  
+
+  <!-- Estilos CSS internos -->
+  
+</head>
+
+<body>
+  <div class="login-container">
+    <!-- Columna izquierda con logo -->
+    <div class="login-left">
+    <img src="img/logo_styles.png" alt="logo" class="big-logo login-img" />
+    </div>
+
+    <!-- Columna derecha con formulario -->
+    <div class="login-right">
+      <div class="login-box">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Usuario" required />
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Contraseña" required />
+          <span id="togglePassword" class="eye-icon">👁️</span>
+        </div>
+        <button onclick="login()">Entrar</button>
+        <p id="error" class="error-text"></p>
+        <p class="register-text">¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+      </div>
+    </div>
+  </div>
+   <script src="login.js"></script>
+</body>
+</html>
