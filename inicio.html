@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styles - Motor de Búsqueda de Moda</title>
+<link rel="stylesheet" href="css styles.css">
+</head>
+<body>
+
+  <!-- ====================== HEADER ====================== -->
+  <header> 
+    <!-- Logo de la aplicación -->
+    <div class="logo">
+      <span class="app-name">Styles</span>
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <input type="text" id="searchInput" placeholder="Buscar estilos por hashtag..." />
+
+    <!-- Iconos de usuario -->
+    <div class="header-icons">
+      <a style="color: white;" href="#" id="login">Iniciar sesión</a>
+      <a style="color: #fffcdf;" href="#" id="favs">favoritos</a>
+    </div>
+  </header>
+
+  <!-- ====================== SECCIÓN BANNER IMG ====================== -->
+  
+ <section class="hero">
+  <h1>Descubre tu estilo único</h1>
+  <p>Explora outfits, inspírate y transforma tu forma de vestir.</p>
+ 
+</section>
+
+
+  <!-- ====================== BANNER DE QUIZ ====================== -->
+
+<section class="quiz-banner">
+  <h2>Descubre tu estilo ideal</h2>
+  <p>Responde una pregunta rápida y encuentra tu outfit perfecto.</p>
+  <button onclick="showQuiz()">Comenzar</button>
+</section>
+
+<section id="quiz-container" style="display: none;">
+  <h3>¿Qué prefieres usar un viernes casual?</h3>
+  <button onclick="goToStyle('streetwear')">Ropa urbana y cómoda</button>
+  <button onclick="goToStyle('casual')">Algo versátil y sencillo</button>
+  <button onclick="goToStyle('formal')">Me gusta verme elegante</button>
+  <button onclick="goToStyle('oversize')">Oversize y relajado</button>
+  <button onclick="goToStyle('vintage')">Vintage, como de otra época</button>
+</section>
+
+
+
+  <!-- ====================== GALERÍA DE OUTFITS ====================== -->
+<section class="style-sections">
+  <h2>Explora por categoría</h2>
+  <div class="style-grid">
+    <a class="style-card" href="outfit.html?estilo=streetwear" data-tooltip="Urbano, relajado, tendencias actuales.">
+      <h3>#Streetwear</h3>
+    </a>
+    <a class="style-card" href="outfit.html?estilo=casual" data-tooltip="Cómodo, versátil, día a día.">
+      <h3>#Casual</h3>
+    </a>
+    <a class="style-card" href="outfit.html?estilo=formal" data-tooltip="Elegante, sofisticado, ocasiones especiales">
+      <h3>#Formal</h3>
+    </a>
+    <a class="style-card" href="outfit.html?estilo=oversize" data-tooltip="Prendas holgadas, comodidad, look desenfadado.">
+      <h3>#Oversize</h3>
+    </a>
+    <a class="style-card" href="outfit.html?estilo=vintage" data-tooltip="Estilo de épocas pasadas, nostálgico.">
+      <h3>#Vintage</h3>
+    </a>
+  </div>
+</section>
+
+  <!-- ====================== SECCION OUTFIT POPULARES ====================== -->
+
+
+<div class="carrusel-titulo">Outfits populares 🔥</div>
+<div class="carrusel">
+  <img src="img/foto134.jpeg" alt="Outfit 1">
+  <img src="img/foto152.jpeg" alt="Outfit 2">
+  <img src="img/foto143.jpeg" alt="Outfit 3">
+  <img src="img/foto106.jpeg" alt="Outfit 4">
+  <img src="img/foto117.jpeg" alt="Outfit 5">
+  <img src="img/foto43.jpeg" alt="Outfit 6">
+  <img src="img/foto146.jpeg" alt="Outfit 7">
+</div>
+
+  <!-- ====================== SECCION BANNER VIDEO ====================== -->
+
+
+<section class="video-banner">
+  <video autoplay loop muted playsinline>
+    <source src="img/video banner.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+  <div class="video-overlay">
+    <h2>Video de la semana 🎬</h2>
+    <p>Inspírate con lo mejor del #Vintage</p>
+    <a href="outfit.html?estilo=vintage" class="ver-mas">Ver más outfits</a>
+  </div>
+</section>
+
+<button id="botonFavoritos" class="boton-favoritos">
+  ❤️
+</button>
+<div id="panelFavoritos" class="panel-favoritos oculto">
+  <h3>Mis favoritos</h3>
+  <div class="contenedor-favs"></div>
+</div>
+
+
+<script>
+  function showQuiz() {
+    document.getElementById("quiz-container").style.display = "block";
+  }
+
+  function goToStyle(estilo) {
+    const url = `outfit.html?estilo=${estilo}`;
+    window.location.href = url;
+  }
+</script>
+
+<!-- ====================== SCRIPT PRINCIPAL ====================== -->
+   <script src="script.js"></script>
+</body>
+</html>
