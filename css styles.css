@@ -124,24 +124,30 @@ header {
 /* =========================
    GALERÍA DE OUTFITS
 ========================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
 #galeria {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
   justify-content: center;
-  
 }
 
-body { font-family: 'Poppins', sans-serif; padding: 20px; }
-  h1 { text-align: center; }
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
 
-  .outfit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
 .outfit {
   position: relative;
   width: 250px;
@@ -153,31 +159,55 @@ body { font-family: 'Poppins', sans-serif; padding: 20px; }
   transition: transform 0.3s;
 }
 
-.outfit:hover, .favorito-mini:hover {
+.outfit:hover,
+.favorito-mini:hover {
   transform: translateY(-5px);
 }
 
 .outfit img {
   width: 100%;
-   aspect-ratio: 3/4; 
+  aspect-ratio: 3/4;
   height: auto;
   display: block;
 }
- 
+
 .outfit-grid img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    aspect-ratio: 3/4; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    }
-.outfit-grid img:hover{
-  transform: scale(1.05); /* Agranda la imagen ligeramente */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 3/4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
+
+.outfit-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive estilo Pinterest en móvil */
+@media (max-width: 768px) {
+  .outfit-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .outfit {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .outfit-grid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+}
+
 
 /* Etiquetas sobre las imágenes */
 .etiquetas {
@@ -601,23 +631,3 @@ body { font-family: 'Poppins', sans-serif; padding: 20px; }
   color: #1a1a1a;
 }
 
-@media (max-width: 768px) {
-  .outfit-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 12px;
-    padding: 10px;
-  }
-
-  .outfit {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .outfit-grid img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-  }
-}
