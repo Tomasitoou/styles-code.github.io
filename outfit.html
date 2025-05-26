@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Outfit por estilo</title>
+  <link rel="stylesheet" href="css styles.css" />
+ 
+</head>
+<body>
+
+  <h1 id="tituloEstilo">Estilo</h1>
+  <div class="outfit-grid" id="contenedorOutfit"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const estilo = params.get('estilo');
+
+    const imagenes = {
+      streetwear: ["img/foto1.jpeg", "img/foto2.jpeg","img/foto3.jpeg","img/foto4.jpeg",
+      "img/foto5.jpeg","img/foto6.jpeg","img/foto7.jpeg","img/foto8.jpeg","img/foto9.jpeg",
+      "img/foto10.jpeg","img/foto11.jpeg","img/foto12.jpeg","img/foto13.jpeg",],
+
+      casual: ["img/foto14.jpeg", "img/foto15.jpeg","img/foto16.jpeg","img/foto17.jpeg",
+      "img/foto18.jpeg","img/foto19.jpeg","img/foto20.jpeg","img/foto21.jpeg","img/foto22.jpeg",
+      "img/foto23.jpeg","img/foto24.jpeg","img/foto25.jpeg","img/foto26.jpeg","img/foto27.jpeg",
+      "img/foto28.jpeg","img/foto29.jpeg","img/foto30.jpeg","img/foto31.jpeg","img/foto32.jpeg",
+      "img/foto33.jpeg","img/foto34.jpeg","img/foto35.jpeg","img/foto36.jpeg","img/foto37.jpeg",
+      "img/foto38.jpeg","img/foto39.jpeg",],
+
+      oversize: ["img/foto40.jpeg", "img/foto41.jpeg","img/foto42.jpeg","img/foto43.jpeg",
+      "img/foto44.jpeg","img/foto45.jpeg","img/foto46.jpeg","img/foto47.jpeg","img/foto48.jpeg",
+      "img/foto49.jpeg","img/foto50.jpeg","img/foto51.jpeg","img/foto52.jpeg","img/foto53.jpeg",
+      "img/foto54.jpeg","img/foto55.jpeg","img/foto56.jpeg","img/foto57.jpeg","img/foto58.jpeg",
+      "img/foto59.jpeg","img/foto60.jpeg","img/foto61.jpeg","img/foto62.jpeg","img/foto63.jpeg",
+      "img/foto64.jpeg","img/foto65.jpeg","img/foto66.jpeg","img/foto67.jpeg","img/foto68.jpeg",
+      "img/foto69.jpeg","img/foto70.jpeg","img/foto71.jpeg","img/foto72.jpeg",],
+
+      formal: ["img/foto73.jpeg","img/foto74.jpeg","img/foto75.jpeg","img/foto76.jpeg",
+      "img/foto77.jpeg","img/foto78.jpeg","img/foto79.jpeg","img/foto80.jpeg","img/foto81.jpeg",
+      "img/foto82.jpeg","img/foto83.jpeg","img/foto84.jpeg","img/foto85.jpeg","img/foto86.jpeg",
+      "img/foto87.jpeg","img/foto88.jpeg","img/foto89.jpeg","img/foto90.jpeg","img/foto91.jpeg",
+      "img/foto92.jpeg","img/foto93.jpeg","img/foto94.jpeg","img/foto95.jpeg","img/foto96.jpeg",
+      "img/foto97.jpeg","img/foto98.jpeg","img/foto99.jpeg","img/foto100.jpeg","img/foto101.jpeg",
+      "img/foto102.jpeg","img/foto103.jpeg","img/foto104.jpeg",],
+
+      vintage: ["img/foto105.jpeg","img/foto106.jpeg","img/foto107.jpeg","img/foto108.jpeg",
+      "img/foto109.jpeg","img/foto110.jpeg","img/foto111.jpeg","img/foto112.jpeg","img/foto113.jpeg",
+      "img/foto114.jpeg","img/foto115.jpeg","img/foto116.jpeg","img/foto117.jpeg","img/foto118.jpeg",
+      "img/foto119.jpeg","img/foto120.jpeg","img/foto121.jpeg","img/foto122.jpeg","img/foto123.jpeg",
+      "img/foto124.jpeg","img/foto125.jpeg","img/foto126.jpeg","img/foto127.jpeg","img/foto128.jpeg",
+      "img/foto129.jpeg","img/foto130.jpeg","img/foto131.jpeg","img/foto132.jpeg","img/foto133.jpeg",
+      "img/foto134.jpeg","img/foto135.jpeg","img/foto136.jpeg","img/foto137.jpeg","img/foto138.jpeg",
+      "img/foto139.jpeg","img/foto140.jpeg","img/foto141.jpeg","img/foto142.jpeg","img/foto143.jpeg",
+      "img/foto144.jpeg","img/foto145.jpeg","img/foto146.jpeg","img/foto147.jpeg","img/foto148.jpeg",
+      "img/foto149.jpeg","img/foto150.jpeg","img/foto151.jpeg","img/foto152.jpeg","img/foto153.jpeg",
+      "img/foto154.jpeg","img/foto155.jpeg","img/foto156.jpeg",]
+    };
+
+     const galeria = document.getElementById('contenedorOutfit');
+    const titulo = document.getElementById('tituloEstilo');
+
+    if (imagenes[estilo]) {
+      titulo.textContent = "#" + estilo.charAt(0).toUpperCase() + estilo.slice(1);
+      imagenes[estilo].forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        galeria.appendChild(img);
+      });
+    } else {
+      titulo.textContent = "Estilo no encontrado";
+    }
+  </script>
+</body>
+</html>

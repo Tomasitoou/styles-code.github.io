@@ -26,65 +26,85 @@
     </div>
   </header>
 
-  <!-- ====================== BARRA DE RECOMENDACIONES ====================== -->
-  <section id="recomendaciones">
-    <h2>Explora por estilos:</h2>
-    <div class="sugerencias">
-      <button class="sugerencia">#streetwear</button>
-      <button class="sugerencia">#casual</button>
-      <button class="sugerencia">#formal</button>
-      <button class="sugerencia">#oversize</button>
-      <button class="sugerencia">#vintage</button>
-      <!-- Agrega más sugerencias aquí si lo deseas -->
-    </div>
-  </section>
+  <!-- ====================== SECCIÓN BANNER IMG ====================== -->
+  
+ <section class="hero">
+  <h1>Descubre tu estilo único</h1>
+  <p>Explora outfits, inspírate y transforma tu forma de vestir.</p>
+ 
+</section>
+
+
+  <!-- ====================== BANNER DE QUIZ ====================== -->
+
+<section class="quiz-banner">
+  <h2>Descubre tu estilo ideal</h2>
+  <p>Responde una pregunta rápida y encuentra tu outfit perfecto.</p>
+  <button onclick="showQuiz()">Comenzar</button>
+</section>
+
+<section id="quiz-container" style="display: none;">
+  <h3>¿Qué prefieres usar un viernes casual?</h3>
+  <button onclick="goToStyle('streetwear')">Ropa urbana y cómoda</button>
+  <button onclick="goToStyle('casual')">Algo versátil y sencillo</button>
+  <button onclick="goToStyle('formal')">Me gusta verme elegante</button>
+  <button onclick="goToStyle('oversize')">Oversize y relajado</button>
+  <button onclick="goToStyle('vintage')">Vintage, como de otra época</button>
+</section>
+
+
 
   <!-- ====================== GALERÍA DE OUTFITS ====================== -->
-  <section class="style-sections">
+<section class="style-sections">
   <h2>Explora por categoría</h2>
   <div class="style-grid">
-    <div class="style-card" onclick="openStyleModule('streetwear')">
+    <a class="style-card" href="outfit.html?estilo=streetwear" data-tooltip="Urbano, relajado, tendencias actuales.">
       <h3>#Streetwear</h3>
-    </div>
-    <div class="style-card" onclick="openStyleModule('casual')">
+    </a>
+    <a class="style-card" href="outfit.html?estilo=casual" data-tooltip="Cómodo, versátil, día a día.">
       <h3>#Casual</h3>
-    </div>
-    <div class="style-card" onclick="openStyleModule('formal')">
+    </a>
+    <a class="style-card" href="outfit.html?estilo=formal" data-tooltip="Elegante, sofisticado, ocasiones especiales">
       <h3>#Formal</h3>
-    </div>
-    <div class="style-card" onclick="openStyleModule('oversize')">
+    </a>
+    <a class="style-card" href="outfit.html?estilo=oversize" data-tooltip="Prendas holgadas, comodidad, look desenfadado.">
       <h3>#Oversize</h3>
-    </div>
-    <div class="style-card" onclick="openStyleModule('vintage')">
+    </a>
+    <a class="style-card" href="outfit.html?estilo=vintage" data-tooltip="Estilo de épocas pasadas, nostálgico.">
       <h3>#Vintage</h3>
-    </div>
+    </a>
   </div>
 </section>
 
-  <!-- ====================== SECCIÓN DE FAVORITOS ====================== -->
+  <!-- ====================== SECCION OUTFIT POPULARES ====================== -->
 
 
-  <!-- ====================== MODAL DE LOGIN ====================== -->
-<div class="login-modal" id="loginModal" style="display: none;">
-  <div class="modal-content">
-
-    <!-- Contenedor del logo -->
-    <div class="logo">
-      <img src="img/logo.png" alt="Logo de Styles">
-    </div>
-
-    <!-- Texto de bienvenida -->
-    <h2>Bienvenido a Styles</h2>
-    <p>¿Listo para entrar en tendencia?</p>
-
-    <!-- Campos del formulario -->
-    <input type="text" placeholder="Usuario">
-    <input type="password" placeholder="Contraseña">
-
-    <!-- Botón de cerrar -->
-    <button onclick="cerrarModal()">Cerrar</button>
-  </div>
+<div class="carrusel-titulo">Outfits populares 🔥</div>
+<div class="carrusel">
+  <img src="img/foto134.jpeg" alt="Outfit 1">
+  <img src="img/foto152.jpeg" alt="Outfit 2">
+  <img src="img/foto143.jpeg" alt="Outfit 3">
+  <img src="img/foto106.jpeg" alt="Outfit 4">
+  <img src="img/foto117.jpeg" alt="Outfit 5">
+  <img src="img/foto43.jpeg" alt="Outfit 6">
+  <img src="img/foto146.jpeg" alt="Outfit 7">
 </div>
+
+  <!-- ====================== SECCION BANNER VIDEO ====================== -->
+
+
+<section class="video-banner">
+  <video autoplay loop muted playsinline>
+    <source src="img/video banner.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+  <div class="video-overlay">
+    <h2>Video de la semana 🎬</h2>
+    <p>Inspírate con lo mejor del #Vintage</p>
+    <a href="outfit.html?estilo=vintage" class="ver-mas">Ver más outfits</a>
+  </div>
+</section>
+
 <button id="botonFavoritos" class="boton-favoritos">
   ❤️
 </button>
@@ -92,6 +112,18 @@
   <h3>Mis favoritos</h3>
   <div class="contenedor-favs"></div>
 </div>
+
+
+<script>
+  function showQuiz() {
+    document.getElementById("quiz-container").style.display = "block";
+  }
+
+  function goToStyle(estilo) {
+    const url = `outfit.html?estilo=${estilo}`;
+    window.location.href = url;
+  }
+</script>
 
 <!-- ====================== SCRIPT PRINCIPAL ====================== -->
    <script src="script.js"></script>
