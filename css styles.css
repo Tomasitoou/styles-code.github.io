@@ -600,3 +600,24 @@ body { font-family: 'Poppins', sans-serif; padding: 20px; }
   border-color: #2196f3;
   color: #1a1a1a;
 }
+
+@media (max-width: 768px) {
+  .outfit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .outfit {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .outfit-grid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+}
