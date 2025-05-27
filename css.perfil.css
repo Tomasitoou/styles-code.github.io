@@ -1,0 +1,124 @@
+/* estilos.css  como una mini biografia? de opcion multiple */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff0f5; /* rosado claro */
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #c2185b; /* rosado fuerte */
+}
+
+#profile {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#profilePicture {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ec407a;
+  margin-bottom: 15px;
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  resize: none;
+}
+
+button {
+  background-color: #ec407a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #d81b60;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#bioDisplay {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  color: #555;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  background-color: #f06292;
+}
+
+.logout-btn:hover {
+  background-color: #e91e63;
+}
+/*boton volver*/
+.volver-btn {
+  align-self: flex-start;
+  background-color: transparent;
+  color: #ec407a;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.volver-btn:hover {
+  text-decoration: underline;
+}
+
+.subir-btn {
+  background-color: #f8bbd0;
+  color: #880e4f;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subir-btn:hover {
+  background-color: #f48fb1;
+}

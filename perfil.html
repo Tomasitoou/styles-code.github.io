@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil de Usuario</title>
+  <link rel="stylesheet" href="css.perfil.css">
+
+  <!-- Estilos en línea para el diseño del perfil -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%; /* Hace la imagen redonda */
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 400px;
+      height: 80px;
+      margin-top: 10px;
+      resize: none;
+    }
+
+    input[type="file"] {
+      margin: 10px 0;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título con el nombre de usuario dinámico -->
+  <h1>Bienvenido, <span id="usernameDisplay"></span></h1>
+
+  <!-- Sección principal del perfil -->
+  <div id="profile">
+    <!-- Imagen de perfil del usuario -->
+    <img id="profilePicture" src="" alt="Foto de perfil">
+    <br />
+
+    <!-- Campo de carga de imagen oculto -->
+    <input type="file" id="profilePictureInput" accept="image/*" hidden />
+
+    <!-- Botón que simula un clic en el input para subir una nueva foto -->
+    <button class="subir-btn" onclick="document.getElementById('profilePictureInput').click()">Subir nueva foto</button>
+
+    <br />
+
+    <!-- Campo para escribir la biografía -->
+    <textarea id="bioInput" placeholder="Escribe tu biografía..."></textarea>
+    <br />
+
+    <!-- Botón para guardar los cambios del perfil -->
+    <button onclick="saveProfile()">Guardar perfil</button>
+  </div>
+
+  <!-- Muestra la biografía guardada -->
+  <p><strong>Biografía:</strong> <span id="bioDisplay"></span></p>
+
+  <!-- Botón para cerrar sesión -->
+  <button onclick="logout()">Cerrar sesión</button>
+
+  <!-- Botón para volver a la página de inicio -->
+  <button class="volver-btn" onclick="window.location.href='inicio.html'">← Volver</button>
+
+  <!-- Scripts JavaScript -->
+  <script>
+    // Si el usuario no ha iniciado sesión, redirigirlo al login
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    // Mostrar el nombre del usuario guardado en localStorage
+    document.getElementById("usernameDisplay").textContent = localStorage.getItem("username");
+
+    // Función para cargar imagen y biografía al abrir la página
+    function loadProfile() {
+      const imgData = localStorage.getItem("profilePicture");
+      const bio = localStorage.getItem("bio");
+
+      // Si hay imagen, mostrarla
+      if (imgData) {
+        document.getElementById("profilePicture").src = imgData;
+      }
+
+      // Si hay biografía, cargarla en el textarea y mostrarla abajo
+      if (bio) {
+        document.getElementById("bioInput").value = bio;
+        document.getElementById("bioDisplay").textContent = bio;
+      }
+    }
+
+    // Función para guardar imagen y biografía en localStorage
+    function saveProfile() {
+      const bio = document.getElementById("bioInput").value;
+      const file = document.getElementById("profilePictureInput").files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        // Cuando se termine de leer la imagen
+        reader.onload = function () {
+          localStorage.setItem("profilePicture", reader.result); // Guarda la imagen como base64
+          localStorage.setItem("bio", bio); // Guarda la biografía
+          loadProfile(); // Recarga los datos
+          document.getElementById("bioInput").style.display = "none"; // Oculta el textarea después de guardar
+        };
+
+        reader.readAsDataURL(file); // Leer la imagen como base64
+      } else {
+        localStorage.setItem("bio", bio);
+        loadProfile();
+        document.getElementById("bioInput").style.display = "none"; // Oculta el textarea
+      }
+    }
+
+    // Cerrar sesión y redirigir al login
+    function logout() {
+      localStorage.setItem("loggedIn", "false");
+      window.location.href = "index.html";
+    }
+
+    // Ejecutar al cargar la página
+    window.onload = loadProfile;
+  </script>
+</body>
+</html>

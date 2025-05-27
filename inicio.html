@@ -12,9 +12,11 @@
   <!-- ====================== HEADER ====================== -->
   <header> 
     <!-- Logo de la aplicación -->
-    <div class="logo">
-      <span class="app-name">Styles</span>
-    </div>
+    <div class="logo-container">
+  <img src="img/logo_styles.png" alt="Logo Styles">
+  <span class="logo-text">Styles</span>
+</div>
+
 
     <!-- Barra de búsqueda -->
     <input type="text" id="searchInput" placeholder="Buscar estilos por hashtag..." />
@@ -22,8 +24,27 @@
     <!-- Iconos de usuario -->
     <div class="header-icons">
       <a style="color: white;" href="#" id="login">Iniciar sesión</a>
-      <a style="color: #fffcdf;" href="#" id="favs">favoritos</a>
+      <a style="color: #ecece9;" href="#" id="favs">.</a>
     </div>
+    
+    <!-- ====================== Botón para ir al perfil ====================== -->
+
+<!-- Este botón redirige al archivo perfil.html cuando se hace clic -->
+<button id="editarPerfilBtn" class="btn-editar" onclick="window.location.href='perfil.html'">
+  Editar perfil
+</button>
+
+<!-- ====================== Script para personalizar el texto del botón ====================== -->
+<script>
+  // Obtiene el nombre de usuario desde localStorage
+  const username = localStorage.getItem("username");
+
+  // Si existe un usuario, cambia el texto del botón para incluir su nombre
+  if (username) {
+    document.getElementById("editarPerfilBtn").textContent = `Editar perfil de ${username}`;
+  }
+</script>
+
   </header>
 
   <!-- ====================== SECCIÓN BANNER IMG ====================== -->
@@ -76,6 +97,11 @@
   </div>
 </section>
 
+<!-- Banner Tip del Día -->
+<div class="tip-banner">
+  <p id="tip-texto"></p>
+</div>
+
   <!-- ====================== SECCION OUTFIT POPULARES ====================== -->
 
 
@@ -105,14 +131,16 @@
   </div>
 </section>
 
-<button id="botonFavoritos" class="boton-favoritos">
-  ❤️
+<button id="botonFavoritos" class="boton-favoritos">❤️</button>
+
+  
 </button>
 <div id="panelFavoritos" class="panel-favoritos oculto">
   <h3>Mis favoritos</h3>
   <div class="contenedor-favs"></div>
 </div>
 
+<!-- ====================== SCRIPT QUIZ ====================== -->
 
 <script>
   function showQuiz() {
