@@ -55,8 +55,8 @@
       "img/foto149.jpeg","img/foto150.jpeg","img/foto151.jpeg","img/foto152.jpeg","img/foto153.jpeg",
       "img/foto154.jpeg","img/foto155.jpeg","img/foto156.jpeg",]
     };
-
-     const galeria = document.getElementById('contenedorOutfit');
+//para que las fotos esten en favoritos 
+    const galeria = document.getElementById('contenedorOutfit');
     const titulo = document.getElementById('tituloEstilo');
 
     if (imagenes[estilo]) {
@@ -70,6 +70,16 @@
       titulo.textContent = "Estilo no encontrado";
     }
   </script>
-  
+    <!-- Botón de cerrar -->
+    <!-- añadir boton para las secciones-->
+<button id="botonFavoritos" class="boton-favoritos">❤️</button>
+
+<div id="panelFavoritos" class="panel-favoritos oculto">
+  <h3>Mis favoritos</h3>
+  <div class="contenedor-favs"></div>
+</div>
+
+ <script src="script.js"></script>
+ <script src="favorito_1.js"></script>
 </body>
 </html>

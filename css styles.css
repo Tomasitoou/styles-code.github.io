@@ -42,9 +42,24 @@ header {
 }
 
 .logo-container img {
+  animation: slowSpin 5s linear infinite;
+}
+
+@keyframes slowSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.logo-container img {
   height: 32px;
   width: 32px;
 }
+
 
 
 /* Barra de búsqueda */
@@ -185,7 +200,7 @@ h1 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive estilo Pinterest en móvil */
+/* Responsive estilo en móvil */
 @media (max-width: 768px) {
   .outfit-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -254,6 +269,53 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/*para que la seccion quede organizada */
+.contenedor-favs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 300px; /* Limita el ancho para que entren solo 2 por fila */
+  margin: 0 auto;   /* Centra el contenedor */
+}
+
+.favorito-item {
+  width: calc(50% - 10px); /* Dos por fila con espacio */
+  aspect-ratio: 1 / 1;     /* Cuadrado */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.favorito-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.favorito-item:hover img {
+  transform: scale(1.05);
+}
+
+.favorito-item:hover {
+  transform: translateY(-5px);
+}
+
+.favorito-item button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-weight: bold;
 }
 
 
@@ -380,14 +442,6 @@ h1 {
   z-index: 1002;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes desaparecer {
-  to { opacity: 0; transform: translateY(20px); }
-}
 .user-display {
   font-weight: 500;
   color: #4b0082;

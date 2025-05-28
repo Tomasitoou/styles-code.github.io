@@ -1,7 +1,6 @@
 // ====================== REFERENCIAS A ELEMENTOS ======================
 const searchInput = document.getElementById("searchInput");
 const sugerencias = document.querySelectorAll(".sugerencia");
-const favoritosContainer = document.querySelector(".contenedor-favs");
 const loginBtn = document.getElementById("login");
 
 
@@ -82,51 +81,6 @@ sugerencias.forEach((btn) => {
     aplicarFiltroBusqueda();
   });
 });
-
-// ====================== FUNCIONALIDAD DE BÚSQUEDA ======================
-function aplicarFiltroBusqueda() {
-  const query = searchInput.value.toLowerCase();
-  const outfits = document.querySelectorAll(".outfit");
-
-  outfits.forEach((outfit) => {
-    const etiquetas = outfit.querySelectorAll(".etiqueta");
-    let coincide = false;
-
-    etiquetas.forEach((etiqueta) => {
-      if (etiqueta.textContent.toLowerCase().includes(query)) {
-        coincide = true;
-      }
-    });
-
-    outfit.style.display = coincide ? "block" : "none";
-  });
-}
-
-searchInput.addEventListener("input", aplicarFiltroBusqueda);
-
-// ====================== INICIAR FUNCIONES UNA VEZ CARGADO EL DOM ======================
-document.addEventListener("DOMContentLoaded", () => {
-  añadirEventosFavoritos();
-});
-// Mostrar/Ocultar el panel de favoritos
-const botonFavoritos = document.getElementById("botonFavoritos");
-const panelFavoritos = document.getElementById("panelFavoritos");
-
-botonFavoritos.addEventListener("click", () => {
-  panelFavoritos.classList.toggle("oculto");
-});
-
-function mostrarToastFavorito() {
-  const toast = document.createElement("div");
-  toast.classList.add("toast-favorito");
-  toast.textContent = "¡Añadido a favoritos!";
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.remove();
-  }, 3000); // Duración del mensaje
-}
 
 // JS: Array de tips
 const tips = [
