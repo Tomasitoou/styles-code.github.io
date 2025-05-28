@@ -4,41 +4,6 @@ const sugerencias = document.querySelectorAll(".sugerencia");
 const favoritosContainer = document.querySelector(".contenedor-favs");
 const loginBtn = document.getElementById("login");
 
-// ====================== FUNCIÓN: AÑADIR FAVORITOS ======================
-function añadirEventosFavoritos() {
-  const outfits = document.querySelectorAll(".outfit");
-
-  outfits.forEach((outfit) => {
-    outfit.addEventListener("dblclick", () => {
-      const outfitClone = outfit.cloneNode(true);
-      outfitClone.classList.add("favorito-mini");
-
-      // Verificar si ya existe
-      const yaExiste = Array.from(favoritosContainer.children).some(fav =>
-        fav.querySelector("img").src === outfit.querySelector("img").src
-      );
-
-      if (!yaExiste) {
-        // Crear botón de eliminar
-        const botonEliminar = document.createElement("button");
-      botonEliminar.classList.add("btn-eliminar");
-      botonEliminar.innerHTML = `<img src="img/boton-eliminar.png" alt="Eliminar" />`; // ← Aquí colocas tu ícono
-
-        outfitClone.appendChild(botonEliminar);
-
-        // Evento para eliminar
-        botonEliminar.addEventListener("click", () => {
-          outfitClone.remove();
-        });
-
-        favoritosContainer.appendChild(outfitClone);
-        favoritosContainer.appendChild(outfitClone);
-mostrarToastFavorito(); // ← Añádelo aquí
-
-      }
-    });
-  });
-}
 
 // ====================== MODAL DE INICIO DE SESIÓN ======================
 loginBtn.addEventListener("click", (e) => {
